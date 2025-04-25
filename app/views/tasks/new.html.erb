@@ -1,0 +1,42 @@
+<%= turbo_frame_tag "new_task" do %>
+  <%= form_with(model: @task, data: { turbo_frame: "tasks" }) do |form| %>
+    <% if @task.errors.any? %>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <%= form.submit %>
+  <% end %>
+<% end %>
+<!--<turbo-frame id="test">-->
+<!--  <h2>It works!</h2>-->
+
+  <%#= form_with(model: @task, url: tasks_path) do |form| %>
+<!--    <div>-->
+      <%#= form.label :title %>
+      <%#= form.text_field :title %>
+<!--    </div>-->
+
+<!--    <div>-->
+      <%#= form.label :description %>
+      <%#= form.text_area :description %>
+<!--    </div>-->
+
+<!--    <div>-->
+      <%#= form.submit %>
+<!--    </div>-->
+  <%# end %>
+<!--</turbo-frame>-->

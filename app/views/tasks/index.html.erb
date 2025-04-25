@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "title" do %>
+  <h1>Tasks</h1>
+<% end %>
+<div data-controller="test" data-value1="value1" data-value2="value2">
+  <input data-action="input->test#targetoutput" >
+  <input data-test-target="idfield">
+</div>
+<%= turbo_frame_tag "new_task" do %>
+  <%= link_to "New Task", new_task_path, data: { turbo_frame: "new_task" } %>
+<% end %>
+
+<%#= turbo_frame_tag "tasks", target = "_top" do %>
+  <%#= render @tasks %>
+<%# end %>
+
+<%= turbo_frame_tag "tasks" do %>
+  <%= render @tasks %>
+<% end %>
+<%#= turbo_frame_tag "test" do %>
+  <%#= link_to "Load Form", new_task_path, data: { turbo_frame: "test" } %>
+<%# end %>

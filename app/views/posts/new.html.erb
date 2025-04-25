@@ -1,0 +1,32 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+<!-- app/views/posts/new.html.erb -->
+<h1>New Post</h1>
+
+<%= form_with(model: @post, data: { turbo_frame: "new_post" }) do |form| %>
+  <% if @post.errors.any? %>
+    <div>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Post" %>
+  </div>
+<% end %>
+

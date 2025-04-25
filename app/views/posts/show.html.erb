@@ -1,0 +1,6 @@
+<!-- app/views/posts/show.html.erb -->
+<turbo-frame id="post_<%= @post.id %>">
+  <h2><%= @post.title %></h2>
+  <p><%= @post.content %></p>
+  <%= link_to "Back", posts_path, data: { turbo_frame: "_top" } %>
+</turbo-frame>

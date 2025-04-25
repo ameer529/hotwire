@@ -1,0 +1,18 @@
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+
+<!-- app/views/posts/index.html.erb -->
+<h1>Posts</h1>
+
+<%= turbo_frame_tag "new_post" do %>
+  <%= link_to "New Post", new_post_path, data: { turbo_frame: "post" } %>
+<% end %>
+
+
+<%= turbo_frame_tag "posts" do %>
+  <%# @posts.each do |post| %>
+    <%#= render partial: "post", locals: { post: post } %>
+  <%# end %>
+  <% render @posts %>
+<% end %>
+
